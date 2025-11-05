@@ -1,3 +1,4 @@
+// server.js
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
@@ -13,11 +14,21 @@ connectDB();
 const app = express();
 app.use(express.json());
 
-// === CORS CONFIGURATION ===
-const frontendUrl = "https://hackathon-biggards-production.up.railway.app";
+// === CORS SETUP ===
+const FRONTEND_URL = "https://hackathon-biggards-production.up.railway.app";
 
-app.use(cors());
-app.options("*", cors());
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", FRONTEND_URL); // frontend domain
+  res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.header("Access-Control-Allow-Credentials", "true");
+
+  if (req.method === "OPTIONS") {
+    return res.sendStatus(204); // respond OK to preflight requests
+  }
+
+  next();
+});
 
 // Routes
 app.use("/api/auth", authRoutes);

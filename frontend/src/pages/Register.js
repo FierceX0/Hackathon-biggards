@@ -1,3 +1,4 @@
+// frontend/src/pages/Register.js
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import API from "../api.js";
@@ -19,12 +20,12 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await API.post("/auth/register", form);
+      const response = await API.post("/auth/register", form);
       alert("Registered successfully! You can now log in.");
       navigate("/");
     } catch (err) {
-      console.log(err);
-      alert(err.response?.data?.message || err.message || "Registration failed");
+      console.error(err);
+      alert(err.response?.data?.message || "Registration failed");
     }
   };
 

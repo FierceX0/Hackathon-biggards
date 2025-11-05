@@ -1,15 +1,12 @@
+// frontend/src/api.js
 import axios from "axios";
 
-// If on localhost, use local backend; otherwise, use Railway backend
-const BASE_URL =
-  window.location.hostname === "localhost"
-    ? "http://localhost:5000/api" // only for local dev
-    : "https://hackathon-backend.up.railway.app/api"; // Railway backend
-
-console.log("Backend URL:", BASE_URL);
-
+// Hardcoded Railway backend URL
 const API = axios.create({
-  baseURL: BASE_URL,
+  baseURL: "https://hackathon-backend.up.railway.app/api",
 });
 
+console.log("Backend URL:", API.defaults.baseURL);
+
 export default API;
+

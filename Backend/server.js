@@ -12,7 +12,9 @@ connectDB();
 
 const app = express();
 app.use(cors({
-  origin: "https://hackathon-biggards-production.up.railway.app/"
+  origin: "https://hackathon-biggards-production.up.railway.app/", 
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  credentials: true // if you use cookies
 }));
 app.use(express.json());
 

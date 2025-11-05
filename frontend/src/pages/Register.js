@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import API from "../api";
+import API from "../api.js";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -23,7 +23,8 @@ const Register = () => {
       alert("Registered successfully! You can now log in.");
       navigate("/");
     } catch (err) {
-      alert(err.response?.data?.message || "Registration failed");
+      console.log(err);
+      alert(err.response?.data?.message || err.message || "Registration failed");
     }
   };
 

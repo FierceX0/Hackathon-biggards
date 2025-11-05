@@ -1,7 +1,7 @@
 import axios from "axios";
-
+console.log("Backend URL:", "https://hackathon-backend.up.railway.app/api");
 const API = axios.create({
-  baseURL: process.env.REACT_APP_API_URL || "http://localhost:5000/api",
+  baseURL: "https://hackathon-backend.up.railway.app/api" 
 });
 
 export default API;

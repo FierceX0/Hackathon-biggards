@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import API from "../api";
+import API from "../api.js";
 
 const HospitalDashboard = () => {
   const [data, setData] = useState(null);

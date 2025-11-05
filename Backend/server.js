@@ -11,18 +11,16 @@ dotenv.config();
 connectDB();
 
 const app = express();
-
-// JSON parsing middleware
 app.use(express.json());
 
-// CORS configuration
-const corsOptions = {
-  origin: "https://hackathon-biggards-production.up.railway.app", // your frontend URL
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true, // only needed if using cookies
-};
+// === CORS CONFIGURATION ===
+const frontendUrl = "https://hackathon-biggards-production.up.railway.app";
 
-app.use(cors(corsOptions));
+app.use(cors({
+  origin: frontendUrl,           // allow only your frontend
+  methods: ["GET","POST","PUT","DELETE","OPTIONS"],
+  credentials: true              // allow cookies if needed
+}));
 
 // Routes
 app.use("/api/auth", authRoutes);

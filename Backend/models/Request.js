@@ -1,16 +1,10 @@
 import mongoose from "mongoose";
 
-const requestSchema = new mongoose.Schema(
-  {
-    hospital: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
-    bloodType: { type: String, required: true },
-    urgent: { type: Boolean, default: false },
-    date: { type: String },
-    location: { type: String },
-    status: { type: String, enum: ["open", "accepted", "completed"], default: "open" },
-    acceptedBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
-  },
-  { timestamps: true }
-);
+const requestSchema = new mongoose.Schema({
+  hospital: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+  bloodType: String,
+  urgency: { type: String, enum: ["Normal", "Urgent"], default: "Normal" },
+  date: { type: Date, default: Date.now },
+});
 
 export default mongoose.model("Request", requestSchema);

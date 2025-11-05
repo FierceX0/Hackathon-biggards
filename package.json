@@ -1,32 +1,11 @@
 {
-  "name": "hackathon-biggards",
+  "name": "hackathon-root",
   "version": "1.0.0",
-  "description": "Fullstack blood donation platform built for a hackathon — Express backend + Next.js frontend.",
-  "main": "backend/server.js",
+  "private": true,
   "scripts": {
-    "dev": "concurrently \"npm run dev:Backend\" \"npm run dev:Frontend\"",
-    "dev:backend": "nodemon Backend/server.js",
-    "dev:frontend": "npm run dev --prefix frontend",
-    "start": "node Backend/server.js",
-    "build": "npm run build --prefix frontend"
-    
-  },
-  "dependencies": {
-    "bcryptjs": "^3.0.3",
-    "cors": "^2.8.5",
-    "dotenv": "^17.2.3",
-    "express": "^5.1.0",
-    "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.19.3",
-    "next": "latest",
-    "react": "latest",
-    "react-dom": "latest"
-  },
-  "devDependencies": {
-    "concurrently": "^8.2.2",
-    "nodemon": "^3.1.10",
-    "tailwindcss": "latest",
-    "postcss": "latest",
-    "autoprefixer": "latest"
+    "start-backend": "cd Backend && npm start",
+    "dev-backend": "cd Backend && npm run dev",
+    "build-frontend": "cd Frontend && npm install && npm run build",
+    "start-frontend": "cd Frontend && npm start"
   }
 }

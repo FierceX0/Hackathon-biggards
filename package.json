@@ -4,11 +4,12 @@
   "description": "Fullstack blood donation platform built for a hackathon — Express backend + Next.js frontend.",
   "main": "backend/server.js",
   "scripts": {
-    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
-    "dev:backend": "nodemon backend/server.js",
+    "dev": "concurrently \"npm run dev:Backend\" \"npm run dev:Frontend\"",
+    "dev:backend": "nodemon Backend/server.js",
     "dev:frontend": "npm run dev --prefix frontend",
-    "start": "node backend/server.js",
-    "build": "npm run build --prefix Frontend"
+    "start": "node Backend/server.js",
+    "build": "npm run build --prefix frontend"
+    
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",
